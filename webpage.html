@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LearnSec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #080e1e;
+  --card:   #0d1530;
+  --border: #1a3060;
+  --blue:   #4a90d9;
+  --text:   #d8e6f4;
+  --muted:  #7a9abf;
+  --body:   'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* NAV */
+nav {
+  background: #04070f;
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 0;
+}
+.nav-logo img { height: 32px; width: 32px; object-fit: contain; }
+.nav-logo span { font-size: 1.1rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+.nav-logo span em { font-style: normal; color: var(--blue); }
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; color: var(--muted); text-decoration: none;
+  padding: 0.9rem 0.9rem; display: block;
+  transition: color 0.2s; font-weight: 500;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  padding: 5rem 2rem 4rem;
+  max-width: 860px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--border);
+}
+.hero-label {
+  font-size: 0.72rem; color: var(--muted);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 1.2rem; font-weight: 500;
+}
+h1 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.03em; color: var(--text);
+  margin-bottom: 1.2rem;
+}
+h1 span { color: var(--blue); }
+.hero-desc {
+  font-size: 0.95rem; color: var(--muted);
+  max-width: 560px; margin-bottom: 2rem; line-height: 1.75;
+}
+.hero-meta { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.hero-author { display: flex; align-items: center; gap: 0.8rem; }
+.hero-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid var(--border); overflow: hidden; flex-shrink: 0;
+}
+.hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.hero-author-name { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+.hero-author-role { font-size: 0.72rem; color: var(--muted); }
+.hero-links { display: flex; gap: 0.6rem; }
+.hero-link {
+  font-size: 0.72rem; color: var(--muted); text-decoration: none;
+  border: 1px solid var(--border); padding: 0.4rem 0.9rem;
+  border-radius: 4px; display: flex; align-items: center; gap: 0.4rem;
+  transition: color 0.2s, border-color 0.2s; font-weight: 500;
+}
+.hero-link:hover { color: var(--blue); border-color: var(--blue); }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+.tag {
+  font-size: 0.68rem; color: var(--muted);
+  border: 1px solid var(--border); background: var(--card);
+  padding: 0.2rem 0.65rem; border-radius: 20px;
+}
+
+/* PAGE */
+.page { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+.section {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-child { border-bottom: none; }
+
+.section-title {
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--text); margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.acard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; }
+.acard-label { font-size: 0.68rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+.acard p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+.acard-wide { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 1.2rem 1.3rem; }
+.acard-wide p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+
+/* PROSE */
+.prose { font-size: 0.92rem; color: var(--muted); line-height: 1.85; max-width: 680px; }
+.prose + .prose { margin-top: 0.8rem; }
+
+/* METHODOLOGY */
+.method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.sprint-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; }
+.sprint-label { font-size: 0.68rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.9rem; }
+.sprint-steps { list-style: none; }
+.sprint-steps li {
+  font-size: 0.82rem; color: var(--muted);
+  padding: 0.4rem 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 0.75rem; align-items: baseline; line-height: 1.5;
+}
+.sprint-steps li:last-child { border-bottom: none; }
+.step-n { font-size: 0.6rem; color: var(--border); flex-shrink: 0; font-weight: 600; }
+
+/* FEATURES */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+.fcard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; transition: border-color 0.2s; }
+.fcard:hover { border-color: var(--blue); }
+.fcard-title { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+.fcard ul { list-style: none; }
+.fcard li { font-size: 0.8rem; color: var(--muted); padding: 0.15rem 0; display: flex; gap: 0.5rem; line-height: 1.5; }
+.fcard li::before { content: '·'; color: var(--blue); flex-shrink: 0; }
+
+/* TECH */
+.tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tech-item {
+  font-size: 0.78rem; color: var(--muted);
+  border: 1px solid var(--border); background: var(--card);
+  padding: 0.3rem 0.85rem; border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tech-item:hover { color: var(--blue); border-color: var(--blue); }
+
+/* ARCHITECTURE */
+.arch-img { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #04070f; }
+.arch-img img { width: 100%; display: block; }
+
+/* VIDEO */
+.video-wrap {
+  position: relative; width: 100%; padding-bottom: 56.25%;
+  height: 0; border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border); background: #000;
+}
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+/* CONCLUSION */
+.future-label { font-size: 0.68rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.06em; margin: 1.5rem 0 0.75rem; }
+.future-list { list-style: none; }
+.future-list li {
+  font-size: 0.85rem; color: var(--muted);
+  padding: 0.4rem 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 0.6rem; align-items: baseline;
+}
+.future-list li:last-child { border-bottom: none; }
+.future-list li::before { content: '→'; color: var(--blue); font-size: 0.7rem; flex-shrink: 0; }
+
+/* FOOTER */
+footer {
+  background: #04070f; border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem; text-align: center;
+  font-size: 0.75rem; color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .about-grid, .method-grid, .feat-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="images/learnsec-icon.png" alt="LearnSec">
+    <span>Learn<em>Sec</em></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Final Year Project · SETU · 2026</div>
+  <h1>System for <span>Deploying</span> Security &amp; Forensic Classroom Labs</h1>
+
+  <div class="hero-meta">
+    <div class="hero-author">
+      <div class="hero-avatar">
+        <img src="images/1773092418970.jpeg" alt="Jorja Holland">
+      </div>
+      <div>
+        <div class="hero-author-name">Jorja Holland</div>
+        <div class="hero-author-role">BSc (Hons) Computer Forensics &amp; Security</div>
+      </div>
+    </div>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/jorjaholland/" target="_blank" class="hero-link">
+        LinkedIn
+      </a>
+      <a href="https://github.com/JHolland-22" target="_blank" class="hero-link">
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">AWS</span>
+    <span class="tag">AWS Academy</span>
+    <span class="tag">Python</span>
+    <span class="tag">Python Flask</span>
+    <span class="tag">Boto3</span>
+    <span class="tag">PyCharm</span>
+    <span class="tag">Apache Guacamole</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <div class="section-title">About me</div>
+    <div class="about-grid">
+      <div class="acard">
+        <div class="acard-label">Background</div>
+        <p>My name is Jorja Holland, and I am a student at SETU studying Computer Forensics and Security. I'm hardworking, self-motivated and always looking to improve. I enjoy taking on challenges that push me outside my comfort zone, and I take pride in seeing a project through from start to finish.</p>
+      </div>
+      <div class="acard">
+        <div class="acard-label">Skills &amp; interests</div>
+        <p>I believe that technical skills and soft skills go hand in hand. On the technical side I have built up strong skills in Python, AWS, cloud infrastructure and cybersecurity. I am organised, hardworking and able to manage my own time effectively. To me, being a well rounded graduate means bringing both to the table.</p>
+      </div>
+    </div>
+    <div class="acard-wide">
+      <div class="acard-label">Why this project</div>
+      <p>I chose this project because I wanted to build something that actually solves a real problem. During my time studying cyber security I noticed how frustrating it was for students to get lab environments set up consistently. It wasted time that should have been spent learning. LearnSec gave me the opportunity to combine my interest in cloud technology and security into one project.</p>
+    </div>
+  </div>
+
+  <!-- INTRODUCTION -->
+  <div class="section" id="intro">
+    <div class="section-title">Introduction</div>
+    <p class="prose">This project is aimed at addressing the need for quick and reliable availability of virtual machines for students to perform labs for cyber security modules. Cloud automation simplifies the distribution of VMs providing scalability, consistency and availability.</p>
+    <p class="prose">By leveraging automation, this solution can create and configure VMs to suit the students requirements. This can be used by multiple students at once making it scalable, and they are only accessible by authorised users.</p>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="section" id="methodology">
+    <div class="section-title">Methodology</div>
+    <div class="method-grid">
+      <div>
+        <p class="prose">An iterative development approach was taken. It was broken into 5 two-week sprints. Each sprint consisted of the following:</p>
+      </div>
+      <div class="sprint-box">
+        <div class="sprint-label">Each sprint cycle</div>
+        <ul class="sprint-steps">
+          <li><span class="step-n">01</span>Pick specific features to build</li>
+          <li><span class="step-n">02</span>Implement them using AWS CDK</li>
+          <li><span class="step-n">03</span>Test the implemented features</li>
+          <li><span class="step-n">04</span>Gather feedback and iterate</li>
+          <li><span class="step-n">05</span>Review and document the completed sprint</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section" id="features">
+    <div class="section-title">Key features</div>
+    <div class="feat-grid">
+      <div class="fcard">
+        <div class="fcard-title">User Friendly Interface</div>
+        <ul><li>Web-based interface, no installation required</li><li>Deploy VMs with a few clicks</li></ul>
+      </div>
+      <div class="fcard">
+        <div class="fcard-title">Scalable &amp; Reliable</div>
+        <ul><li>Can handle multiple users simultaneously</li><li>Consistent performance and 24/7 uptime</li></ul>
+      </div>
+      <div class="fcard">
+        <div class="fcard-title">Consistent Environment</div>
+        <ul><li>All users have access to the same virtual environment</li><li>Ensures reproducible results for all students</li></ul>
+      </div>
+      <div class="fcard">
+        <div class="fcard-title">Secure</div>
+        <ul><li>Role-based access control</li><li>Only authorised users can access the system</li></ul>
+      </div>
+      <div class="fcard">
+        <div class="fcard-title">AWS Academy Compatible</div>
+        <ul><li>Fully compatible with AWS Academy accounts</li><li>Students and educators can access lab environments through their institution</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div class="section" id="stack">
+    <div class="section-title">Tools &amp; technologies</div>
+    <div class="tech-list">
+      <span class="tech-item">AWS</span>
+      <span class="tech-item">AWS Academy</span>
+      <span class="tech-item">Python</span>
+      <span class="tech-item">Python Flask</span>
+      <span class="tech-item">Boto3</span>
+      <span class="tech-item">PyCharm</span>
+      <span class="tech-item">Apache Guacamole</span>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="section" id="architecture">
+    <div class="section-title">AWS architecture</div>
+    <div class="arch-img">
+      <img src="images/3.drawio.png" alt="AWS Architecture diagram">
+    </div>
+  </div>
+
+  <!-- DEMO -->
+  <div class="section" id="demo">
+    <div class="section-title">Demo - Not done yet!</div>
+    <!-- Replace YOUR_VIDEO_ID with your YouTube video ID once uploaded -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+        title="LearnSec demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="section" id="conclusion">
+    <div class="section-title">Conclusion - not done yet</div>
+    <p class="prose">WILL DO LATER</p>
+    <div class="future-label">Future work</div>
+    <ul class="future-list">
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Jorja Holland · BSc (Hons) Computer Forensics &amp; Security · SETU 2026
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
