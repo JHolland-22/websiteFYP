@@ -142,8 +142,8 @@ h1 span { color: var(--blue); }
 .step-n { font-size: 0.6rem; color: var(--border); flex-shrink: 0; font-weight: 600; }
 
 /* FEATURES */
-.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
-.fcard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; transition: border-color 0.2s; }
+.feat-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; }
+.fcard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; transition: border-color 0.2s; width: calc(33.333% - 0.6rem); }
 .fcard:hover { border-color: var(--blue); }
 .fcard-title { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
 .fcard ul { list-style: none; }
@@ -191,7 +191,9 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .about-grid, .method-grid, .feat-grid { grid-template-columns: 1fr; }
+  .about-grid, .method-grid { grid-template-columns: 1fr; }
+  .feat-grid { flex-direction: column; }
+  .fcard { width: 100%; }
   .nav-links { display: none; }
   h1 { font-size: 1.8rem; }
 }
