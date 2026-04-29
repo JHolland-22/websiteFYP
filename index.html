@@ -27,7 +27,6 @@ body {
   line-height: 1.7;
 }
 
-/* NAV */
 nav {
   background: #04070f;
   border-bottom: 1px solid var(--border);
@@ -54,7 +53,6 @@ nav {
 }
 .nav-links a:hover { color: var(--text); }
 
-/* HERO */
 .hero {
   padding: 5rem 2rem 4rem;
   max-width: 860px;
@@ -101,7 +99,6 @@ h1 span { color: var(--blue); }
   padding: 0.2rem 0.65rem; border-radius: 20px;
 }
 
-/* PAGE */
 .page { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
 .section {
@@ -116,7 +113,6 @@ h1 span { color: var(--blue); }
   letter-spacing: -0.01em;
 }
 
-/* ABOUT */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
 .acard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; }
 .acard-label { font-size: 0.68rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
@@ -124,11 +120,9 @@ h1 span { color: var(--blue); }
 .acard-wide { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 1.2rem 1.3rem; }
 .acard-wide p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
 
-/* PROSE */
 .prose { font-size: 0.92rem; color: var(--muted); line-height: 1.85; max-width: 680px; }
 .prose + .prose { margin-top: 0.8rem; }
 
-/* METHODOLOGY */
 .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .sprint-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; }
 .sprint-label { font-size: 0.68rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.9rem; }
@@ -141,7 +135,6 @@ h1 span { color: var(--blue); }
 .sprint-steps li:last-child { border-bottom: none; }
 .step-n { font-size: 0.6rem; color: var(--border); flex-shrink: 0; font-weight: 600; }
 
-/* FEATURES */
 .feat-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; }
 .fcard { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.3rem; transition: border-color 0.2s; width: calc(33.333% - 0.6rem); }
 .fcard:hover { border-color: var(--blue); }
@@ -150,7 +143,6 @@ h1 span { color: var(--blue); }
 .fcard li { font-size: 0.8rem; color: var(--muted); padding: 0.15rem 0; display: flex; gap: 0.5rem; line-height: 1.5; }
 .fcard li::before { content: '·'; color: var(--blue); flex-shrink: 0; }
 
-/* TECH */
 .tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tech-item {
   font-size: 0.78rem; color: var(--muted);
@@ -160,11 +152,9 @@ h1 span { color: var(--blue); }
 }
 .tech-item:hover { color: var(--blue); border-color: var(--blue); }
 
-/* ARCHITECTURE */
 .arch-img { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #04070f; }
 .arch-img img { width: 100%; display: block; }
 
-/* VIDEO */
 .video-wrap {
   position: relative; width: 100%; padding-bottom: 56.25%;
   height: 0; border-radius: 8px; overflow: hidden;
@@ -172,7 +162,6 @@ h1 span { color: var(--blue); }
 }
 .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-/* CONCLUSION */
 .future-label { font-size: 0.68rem; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.06em; margin: 1.5rem 0 0.75rem; }
 .future-list { list-style: none; }
 .future-list li {
@@ -183,7 +172,6 @@ h1 span { color: var(--blue); }
 .future-list li:last-child { border-bottom: none; }
 .future-list li::before { content: '→'; color: var(--blue); font-size: 0.7rem; flex-shrink: 0; }
 
-/* FOOTER */
 footer {
   background: #04070f; border-top: 1px solid var(--border);
   padding: 1.5rem 2rem; text-align: center;
@@ -255,7 +243,6 @@ footer {
 
 <div class="page">
 
-  <!-- ABOUT -->
   <div class="section" id="about">
     <div class="section-title">About me</div>
     <div class="about-grid">
@@ -274,14 +261,12 @@ footer {
     </div>
   </div>
 
-  <!-- INTRODUCTION -->
   <div class="section" id="intro">
     <div class="section-title">Introduction</div>
     <p class="prose">This project is aimed at addressing the need for quick and reliable availability of virtual machines for students to perform labs for cyber security modules. Cloud automation simplifies the distribution of VMs providing scalability, consistency and availability.</p>
     <p class="prose">By leveraging automation, this solution can create and configure VMs to suit the students requirements. This can be used by multiple students at once making it scalable, and they are only accessible by authorised users.</p>
   </div>
 
-  <!-- METHODOLOGY -->
   <div class="section" id="methodology">
     <div class="section-title">Methodology</div>
     <div class="method-grid">
@@ -301,7 +286,6 @@ footer {
     </div>
   </div>
 
-  <!-- FEATURES -->
   <div class="section" id="features">
     <div class="section-title">Key features</div>
     <div class="feat-grid">
@@ -328,7 +312,6 @@ footer {
     </div>
   </div>
 
-  <!-- STACK -->
   <div class="section" id="stack">
     <div class="section-title">Tools &amp; technologies</div>
     <div class="tech-list">
@@ -342,7 +325,6 @@ footer {
     </div>
   </div>
 
-  <!-- ARCHITECTURE -->
   <div class="section" id="architecture">
     <div class="section-title">AWS architecture</div>
     <div class="arch-img">
@@ -350,13 +332,11 @@ footer {
     </div>
   </div>
 
-  <!-- DEMO -->
   <div class="section" id="demo">
-    <div class="section-title">Demo - Not done yet!</div>
-    <!-- Replace YOUR_VIDEO_ID with your YouTube video ID once uploaded -->
+    <div class="section-title">Demo</div>
     <div class="video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+        src="https://youtu.be/Vvzacw-x3TQ"
         title="LearnSec demo"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -365,14 +345,20 @@ footer {
     </div>
   </div>
 
-  <!-- CONCLUSION -->
   <div class="section" id="conclusion">
-    <div class="section-title">Conclusion - not done yet</div>
-    <p class="prose">WILL DO LATER</p>
-    <div class="future-label">Future work</div>
-    <ul class="future-list">
-    </ul>
-  </div>
+    <div class="section-title">Conclusion</div>
+    <p class="prose">The development of LearnSec emerged from a motivation to create a solution for the way practical lab sessions were being delivered and the impact that had on students. The motivation, planning and development of LearnSec has been one of the most technically challenging and rewarding experiences of my time at South East Technological University. Throughout my degree, I have been exposed to a wide range of programming languages, tools, technologies and methodologies, but LearnSec has given me the opportunity to apply and enhance those skills in a manner that no previous modules have allowed me to before. Having the responsibility to plan and develop every component of the platform, from the AWS architecture to the user interface, posed both a challenge but gave me a greater understanding and appreciation to be involved in completing a project like LearnSec. </p>
+<div class="future-label">Future work</div>
+<ul class="future-list">
+  <li>Moodle Plugin</li>
+  <li>Multi-Cloud Support</li>
+  <li>Automated AWS Academy Credential Refresh</li>
+  <li>Notification System</li>
+  <li>VM Snapshot Feature</li>
+  <li>Adaptive Lab Recommendations</li>
+  <li>Github Repository Integration</li>
+  <li>User Activity Logging</li>
+</ul>
 
 </div>
 
